@@ -66,4 +66,17 @@ t=-1
 '''
 cv.ellipse(img, (xc,yc),(M,m),ar,sa,ea,(b,g,r),t)
 '''
-'''Similarly we get polylines and adding text to images by poly lines and puttext method'''
+# Similarly we get polylines and adding text to images by poly lines and puttext method'''
+# for polylines we just need to resize the coordinates in ROWSx1x2 formatted array using numpy
+# with other arguments
+'''
+pts = np.array([[10,0],[20,30],[70,20],[50,50]], np.int32)
+pts = pts.reshape((-1,1,2))
+cv.polylines(img,[pts],True,(0,255,255))
+'''
+# text
+# get a font and pass a string as an Argument along with other's like thickness
+'''
+font = cv.FONT_HERSHEY_SIMPLEX
+cv.putText(img, 'OpenCV', (10, 500), font, 4, (255, 255, 255), 2, cv.LINE_AA)
+'''
